@@ -168,8 +168,12 @@ window.onload = function () {
 
   for (let i = 0; i < text.length; i++) {
     let letter = document.createElement("span");
-    letter.textContent = text[i];
-    letter.style.animationDelay = `${0.2 * i}s`;
+    if (text[i] === " ") {
+      letter.innerHTML = "&nbsp;";
+    } else {
+      letter.textContent = text[i];
+    }
+    letter.style.animationDelay = `${0.1 * i}s`;
     letter.className = "bounce";
     h1.appendChild(letter);
   }
