@@ -87,6 +87,10 @@ const jobs = [
   },
 ];
 
+/*
+Cerca lavori che corrispondono a titolo e località.
+*/
+
 function searchJob(jobTitle, jobLocation) {
   let results = {
     result: [],
@@ -107,6 +111,10 @@ function searchJob(jobTitle, jobLocation) {
   }
   return results;
 }
+
+/*
+Raccoglie i valori di input, esegue la ricerca e mostra i risultati.
+*/
 
 function search() {
   const jobTitle = document.getElementById("jobTitleInput").value.toLowerCase();
