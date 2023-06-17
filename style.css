@@ -140,7 +140,6 @@ section#hero {
   justify-content: center;
   text-align: center;
   color: #fff;
-  margin-top: 260px;
 }
 
 @keyframes bounce {
@@ -176,6 +175,9 @@ input {
   .navbar .links,
   .navbar .action_btn {
     display: none;
+  } 
+  section#hero {
+    margin-top: 150px;
   }
 
   .navbar .toggle_btn {
@@ -205,6 +207,9 @@ input {
   input {
     width: 70%;
     min-width: 70%;
+  }
+  section#hero {
+    margin-top: 260px;
   }
 }
 

@@ -87,26 +87,8 @@ const jobs = [
   },
 ];
 
-function search() {
-  const jobTitle = document.getElementById("jobTitleInput").value.toLowerCase();
-  const jobLocation = document
-    .getElementById("jobLocationInput")
-    .value.toLowerCase();
-
-  if (jobTitle.trim().length === 0 && jobLocation.trim().length === 0) {
-    const nope = document.getElementById("results");
-    const liNope = document.createElement("li");
-    
-    liNope.textContent = "Please enter at least one search criterion.";
-    liNope.style.backgroundColor = "red";
-
-    nope.innerHTML = "";
-    liNope.classList.add("slide-in");
-    nope.appendChild(liNope);
-    return;
-  }
-
-  const results = {
+function searchJob(jobTitle, jobLocation) {
+  let results = {
     result: [],
     count: 0,
   };
@@ -123,7 +105,29 @@ function search() {
       results.count++;
     }
   }
+  return results;
+}
 
+function search() {
+  const jobTitle = document.getElementById("jobTitleInput").value.toLowerCase();
+  const jobLocation = document
+    .getElementById("jobLocationInput")
+    .value.toLowerCase();
+
+  if (jobTitle.trim().length === 0 && jobLocation.trim().length === 0) {
+    const nope = document.getElementById("results");
+    const liNope = document.createElement("li");
+
+    liNope.textContent = "Please enter at least one search criterion.";
+    liNope.style.backgroundColor = "red";
+
+    nope.innerHTML = "";
+    liNope.classList.add("slide-in");
+    nope.appendChild(liNope);
+    return;
+  }
+
+  const results = searchJob(jobTitle, jobLocation);
   const resultsElement = document.getElementById("results");
 
   resultsElement.innerHTML = "";
